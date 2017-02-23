@@ -82,7 +82,7 @@ def complete(mat):
 %s\n
 %s\n
 \\end{tikzpicture}
-\\begin{center}\n""" % (header(), nodes(mat), edges(mat))
+\\end{center}\n""" % (header(), nodes(mat), edges(mat))
     print("Created LaTeX code")
     return res
 
