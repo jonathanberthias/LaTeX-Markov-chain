@@ -103,6 +103,10 @@ def get_matrix_from_input():
     """If a file is given containing the matrix, parse it.
     Else, use the test matrix
     """
+    parser = argparse.ArgumentParser("""
+Create a LaTeX graph from a Markov chain matrix""")
+    parser.add_argument('file', required=False, help="""
+*.txt file containing the input matrix written in LaTeX format""")
     if len(sys.argv) >= 2:
         if sys.argv[1] in os.listdir():
             print("Reading matrix from %s" % sys.argv[1])
