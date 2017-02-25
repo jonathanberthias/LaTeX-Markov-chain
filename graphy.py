@@ -109,16 +109,16 @@ Create a LaTeX graph from a Markov chain matrix""")
 *.txt file containing the input matrix written in LaTeX format""", type=str)
     args = parser.parse_args()
     if args.file:
-        if sys.argv[1] in os.listdir():
-            print("Reading matrix from %s" % sys.argv[1])
-            text = open(sys.argv[1], 'r')
+        if args.file in os.listdir():
+            print("Reading matrix from %s" % args.file)
+            text = open(args.file, 'r')
             mat = get_matrix(text.read())
             text.close()
         else:
             print("Couldn't find file '%s' in directory '%s'" %
-                  (sys.argv[1], os.path.abspath('.')), file=sys.stderr)
+                  (args.file, os.path.abspath('.')), file=sys.stderr)
             print("Exiting.")
-            exit(-1)
+            exit(0)
     else:
         mat = get_matrix(TEST_STR)
     return mat
