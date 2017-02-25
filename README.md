@@ -79,4 +79,5 @@ After tweaking it a little bit, it looks like:
 
 \end{document}
 ```
-The only changes are some ```left``` that became ```right```, yet the result is a clean Markov chain graph. 
+The only changes are some ```left``` that became ```right``` and the positioning of the nodes,
+yet the result is a clean Markov chain graph. 
