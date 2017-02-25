@@ -24,6 +24,9 @@ def get_matrix(string):
     tmp = copy.copy(string).replace("\n", "", 10)
     lines = [s.strip() for s in tmp.strip().split('\\\\')]
     vals = [l.split('&') for l in lines]
+    for i in range(len(vals)):
+        for j in range(len(vals[i])):
+            vals[i][j] = vals[i][j].strip()
     print("Parsed matrix:")
     print(np.array(vals))
     return vals
