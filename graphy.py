@@ -105,9 +105,10 @@ def get_matrix_from_input():
     """
     parser = argparse.ArgumentParser("""
 Create a LaTeX graph from a Markov chain matrix""")
-    parser.add_argument('file', required=False, help="""
-*.txt file containing the input matrix written in LaTeX format""")
-    if len(sys.argv) >= 2:
+    parser.add_argument('file', help="""
+*.txt file containing the input matrix written in LaTeX format""", type=str)
+    args = parser.parse_args()
+    if args.file:
         if sys.argv[1] in os.listdir():
             print("Reading matrix from %s" % sys.argv[1])
             text = open(sys.argv[1], 'r')
@@ -119,12 +120,13 @@ Create a LaTeX graph from a Markov chain matrix""")
             print("Exiting.")
             exit(-1)
     else:
-        print("No input matrix given, using default")
         mat = get_matrix(TEST_STR)
     return mat
 
 
 def run_commands(test_code):
+    """Function to run the command line commands
+    """
     print("Writing output code to 'output.tex'")
     f = open("output.tex", 'w')
     f.write(test_code)
